@@ -24,11 +24,6 @@ liffurl_sharelaction = os.environ.get("LIFF_URL_SHARELACTION")
 # LIFF static webform
 
 
-@app.route("/basicpage", methods=["GET", "POST"])
-def ShowShareLocationLIFF():
-    return render_template('index.html')
-
-
 @app.route("/", methods=["GET", "POST"])
 def callback():
 
@@ -41,7 +36,6 @@ def callback():
             handler.handle(body, signature)
         except InvalidSignatureError:
             abort(400)
-
         return "OK"
 
 
